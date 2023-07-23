@@ -1,14 +1,34 @@
 import { Banner } from "@/components/Banner";
 import Header from "@/components/Header";
+import { Movie } from "@/typings";
 import requests from "@/utils/request";
 
-export default function Home({ netflixOriginals }) {
-  console.log(netflixOriginals);
+interface Props {
+  netflixOriginals: Movie[];
+  trendingNow: Movie[];
+  topRated: Movie[];
+  actionMovies: Movie[];
+  comedyMovies: Movie[];
+  horrorMovies: Movie[];
+  romanceMovies: Movie[];
+  documentaries: Movie[];
+}
+
+export default function Home({
+  netflixOriginals,
+  actionMovies,
+  comedyMovies,
+  documentaries,
+  horrorMovies,
+  romanceMovies,
+  topRated,
+  trendingNow,
+}: Props) {
   return (
     <div>
       <Header />
-      <main>
-        <Banner />
+      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
+        <Banner netflixOriginals={netflixOriginals} />
       </main>
     </div>
   );
